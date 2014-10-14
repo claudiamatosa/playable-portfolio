@@ -22,7 +22,7 @@ In order to build the project, Ruby, Compass and SASS need to be installed. Afte
     bower install
     grunt build
 
-Optionally, `grunt serve` can be used to launch a local instance of the code.
+Additionally, `grunt serve` can be used to launch a local dev instance of the project.
     
 ## Tools
 
