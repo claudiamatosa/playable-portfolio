@@ -1,0 +1,188 @@
+$head-border: black 5px solid;
+$body-border: black 2px solid;
+
+/* For consistency, adjusting the walk cycle duration
+ * also requires adjusting the character speed(inversely) in character.js */
+$walk-cycle-duration: 0.7s;
+
+.character {
+    display: block;
+    position: absolute;
+    height: 50px;
+    left: 0;
+    top: 0;
+    transform: translateZ(20px) translateY(50px) translateX(650px);
+    transform-origin: center;
+    width: 50px;
+    z-index: 100;
+    
+    .head {
+        background-color: rgba(255, 255, 255, 0.8);
+        border: $head-border;
+        border-radius: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        height: 30px;
+        margin: auto;
+        position: relative;
+        width: 30px;
+        z-index: 50;
+    }
+
+    .body {
+        border: $body-border;
+        height: 10px;
+        margin: -20px auto 0 auto;
+        width: 0;
+        z-index: 40;
+    }
+
+    .arms {
+        z-index: 40;
+        
+        .arm {
+            border: $body-border;
+            border-radius: 2px;
+            height: 0px;
+            position: absolute;
+            top: 20px;
+            transform-origin: 0%;
+            width: 20px;
+        }
+    
+        .right {
+            right: 0;
+            transform: rotateZ(190deg);
+        }
+
+        .left {
+            left: 23px;
+            transform: rotateZ(15deg);
+        }
+    }
+
+    .feet {
+        z-index: 40;
+        
+        .foot {
+            border: $body-border;
+            border-radius: 2px;
+            position: absolute;
+            height: 5px;
+            width: 0;
+        }
+    
+        .right {
+            right: 12px;
+            top: 35px; // Varies between 32 and 35
+        }
+
+        .left {
+            left: 12px;
+            top: 33px; // Varies between 32 and 35
+        }
+    }
+}
+
+.skeleton {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+
+    .down & {
+    transform: rotateZ(0deg);
+    }
+
+    .left & {
+        transform: rotateZ(90deg);
+    }
+
+    .up & {
+        transform: rotateZ(180deg);
+    }
+
+    .right & {
+        transform: rotateZ(270deg);
+    }
+}
+
+/* Keyframes */
+@keyframes headWalk {
+  from {
+    transform: translateX(1px);
+  }
+    
+  to {
+    transform: translateX(-1px);
+  }
+}
+
+@keyframes feetWalk {
+  from {
+    top: 35px;
+  }
+    
+  to {
+    top: 32px;
+  }
+}
+
+@keyframes rightArmWalk {
+  from {
+    transform: rotateZ(170deg);
+  }
+    
+  to {
+    transform: rotateZ(190deg);
+  }
+}
+
+@keyframes leftArmWalk {
+  from {
+    transform: rotateZ(15deg);
+  }
+    
+  to {
+    transform: rotateZ(-5deg);
+  }
+}
+
+/* Animations */
+.character.walking { 
+    .head {
+        animation-duration: $walk-cycle-duration;
+        animation-name: headWalk;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+    
+    .foot {
+        animation-duration: $walk-cycle-duration;
+        animation-name: feetWalk;
+        animation-iteration-count: infinite;
+        
+        &.right {
+            animation-direction: alternate; 
+        }
+
+        &.left {
+            animation-direction: alternate-reverse;
+        }
+    }
+
+    .arm {
+        animation-duration: $walk-cycle-duration;
+        animation-iteration-count: infinite;
+    
+        &.right {
+           animation-name: rightArmWalk;
+           animation-direction: alternate;
+        }
+
+        &.left {
+           animation-name: leftArmWalk;
+           animation-direction: alternate-reverse;
+        }
+    }
+}

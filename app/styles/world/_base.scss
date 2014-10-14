@@ -1,0 +1,29 @@
+#floor {
+    background: $floor-color $background-lines;
+    height: $floor-height;
+    width: $floor-width;
+}
+
+.path {
+    box-sizing: border-box;
+    background: $path-color $background-squares;
+    border: $path-fence-color-top 6px dashed;
+    border-bottom: 0;
+    border-top: 0;
+    box-shadow: 0px 0px 150px rgba(0, 0, 0, 0.6);
+    height: $floor-height;
+    margin: 0 auto;
+    position: relative;
+    width: $path-width;
+    
+    .shadow {
+        border: 6px dashed $path-fence-color;
+        border-top: 0;
+        border-bottom: 0;
+        height: $floor-height;
+        width: $floor-width;
+        position: absolute;
+        top: 3px;
+        left: -6px;
+    }
+}

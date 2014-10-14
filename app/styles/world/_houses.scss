@@ -1,0 +1,71 @@
+/* Base */
+$rotation-backfront: rotateY(90deg);
+$rotation-rightleft: rotateX(90deg);
+
+.house {
+    color: $text-color;
+    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.9);
+    font-size: 15x;
+    z-index: 50;
+}
+
+.house-aboutme {
+    position: absolute;
+    left: 50px;
+    top: 100px;
+    width: 400px;
+    
+    .walls {
+        background: $wall-color $background-squares;
+        border-radius: 5px;
+        height: 100px;
+        margin: 30px 10px 0 10px;
+        position: relative;
+        width: 200px;
+        
+        .door {
+            background: $door-color $background-lines;
+            bottom: 0;
+            height: 30px;
+            left: 80px;
+            position: absolute;
+            width: 50px;
+        }
+    }
+
+    .roof {        
+        .left, .right {
+            box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.4);
+            background: $roof-color $background-squares;
+            height: 90px;
+            position: absolute;
+            top: 0;
+            width: 110px;
+        }
+
+        .left {
+            left: 0;
+            transform: skewY(-20deg);
+        }
+
+        .right {
+            background-color: shade($roof-color, 30%);
+            left: 110px;
+            transform: skewY(20deg);
+        }
+    }
+    
+    .text {
+        margin-left: 10px;    
+    
+        .title {
+            font-size: 25px;
+            margin-bottom: 0;
+            text-transform: uppercase;
+        }
+        
+        .description {
+            margin-top: 10px;
+        }
+    }
+}

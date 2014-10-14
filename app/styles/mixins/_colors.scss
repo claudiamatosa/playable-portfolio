@@ -1,0 +1,26 @@
+$color-jackpine: #414F12;
+$color-terreverte: #385E0F;
+$color-pineapple: #FCDC3B;
+$color-papayayellow: #FFFF7E;
+$color-ralphyyellow: #CCCC00;
+$color-yellowperch: #E0D873;
+$color-maroon5: #691F01;
+$color-orangered: #FF4500;
+$color-snow2: #EEE9E9;
+$color-snow3: #CDC9C9;
+$color-darkred: #8B0000;
+
+/* Assign to objects */
+$floor-color: $color-terreverte;
+$floor-color-2: $color-ralphyyellow;
+$path-color: $color-pineapple;
+$path-fence-color: $color-maroon5;
+$path-fence-color-top: $color-orangered;
+$wall-color: $color-yellowperch;
+$roof-color: $color-darkred;
+$door-color: $color-maroon5;
+$handle-color: $color-snow3;
+$text-color: $color-snow2;
+
+$background-squares: url('../../images/paper4.png') top left repeat;
+$background-lines: url('../../images/paper-3.png') top left repeat;
