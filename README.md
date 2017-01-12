@@ -2,7 +2,7 @@
 
 Work in progress, making a character walk through a page in order to reveal new sections.
 
-Running example can be found at http://claudiamatosa.com/code/playable-portfolio
+Running example can be found at https://claudiamatosa.com/code/playable-portfolio
 
 ## The code
 
